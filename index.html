@@ -1,0 +1,148 @@
+<div id="battery-app" class="app-shell">
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Quantum Battery Lab home">
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 40 40"><rect x="5" y="9" width="27" height="23" rx="6"/><path d="M32 16h4v9h-4"/><path d="M19 12l-6 10h6l-2 7 10-13h-7l2-4"/></svg></span>
+      <span><strong>Q-BATTERY</strong><small>QUANTUM DYNAMICS STUDIO</small></span>
+    </a>
+    <nav class="top-links" aria-label="Page sections">
+      <a href="#studio">Studio</a><a href="#results">Live results</a><a href="#physics">Physics notes</a>
+    </nav>
+    <div class="status-pill"><span class="status-dot"></span><span>INTERACTIVE LAB</span></div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-line"></span> QUANTUM UNLOCKED · QISKIT + CLASSICAL DYNAMICS</div>
+        <h1>Who charges a<br/><em>quantum battery</em><br/>better?</h1>
+        <p class="hero-lede">Rewire the interaction graph. Change the drive. Watch stored energy, average power, and extractable work evolve in real time.</p>
+        <div class="hero-tags"><span>01 / Topology</span><span>02 / Charging</span><span>03 / Ergotropy</span></div>
+        <div class="hero-actions"><a class="primary-button" href="#studio">Open the lab <span aria-hidden="true">↘</span></a><button class="text-button" id="hero-run" type="button">Run the default experiment <span aria-hidden="true">→</span></button></div>
+        <p class="hero-footnote"><span class="mini-pulse"></span> Toy model · high-resolution classical reference · optional Qiskit validation</p>
+      </div>
+      <div class="hero-art">
+        <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+        <div class="art-label label-top"><span class="label-kicker">BATTERY CELLS</span><strong id="hero-cell-count">03 CELLS</strong></div>
+        <svg id="hero-topology" class="topology-svg hero-topology-svg" viewBox="0 0 540 310" role="img" aria-label="Selected quantum battery interaction topology"></svg>
+        <div class="art-equation"><span>H<sub>B</sub></span><span>=</span><span>ω&nbsp; Σ&nbsp;|1⟩⟨1|</span></div>
+        <div class="art-label label-bottom"><span class="live-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span><strong id="hero-topology-name">STAR CHARGER</strong><small>INTERACTION MAP</small></span></div>
+      </div>
+      <div class="hero-glow glow-a"></div><div class="hero-glow glow-b"></div>
+    </section>
+
+    <section class="mission-rail" id="missions" aria-label="Guided experiment missions">
+      <div class="mission-intro">
+        <div><div class="eyebrow"><span class="eyebrow-line"></span> GUIDED EXPERIMENTS</div><h2>Pick a question, not just a slider.</h2><p>Load a mini-investigation with one click. Each mission changes the physical settings, reruns the model, and reports a result from the current simulation.</p></div>
+        <div class="mission-badge"><span class="mission-badge-dot"></span> 4 QUICK LABS</div>
+      </div>
+      <div class="mission-grid" role="group" aria-label="Load a guided experiment">
+        <button class="mission-card" data-mission="power-vs-energy" type="button"><span class="mission-num">01</span><span class="mission-icon icon-race" aria-hidden="true">↗</span><strong>Power vs. stored energy</strong><small>See whether the fastest charger also stores the most energy at the end.</small><span class="mission-cta">RUN EXPERIMENT <b>→</b></span></button>
+        <button class="mission-card" data-mission="coupling-off" type="button"><span class="mission-num">02</span><span class="mission-icon icon-decouple" aria-hidden="true">⊘</span><strong>Turn interactions off</strong><small>Set coupling to zero and test if the connected topologies collapse to the parallel baseline.</small><span class="mission-cta">RUN EXPERIMENT <b>→</b></span></button>
+        <button class="mission-card" data-mission="strong-coupling" type="button"><span class="mission-num">03</span><span class="mission-icon icon-coupling" aria-hidden="true">⤳</span><strong>Increase coupling</strong><small>Explore how stronger exchange changes the chain's energy trajectory and peak power.</small><span class="mission-cta">RUN EXPERIMENT <b>→</b></span></button>
+        <button class="mission-card" data-mission="scale-up" type="button"><span class="mission-num">04</span><span class="mission-icon icon-scale" aria-hidden="true">N↑</span><strong>Scale to seven cells</strong><small>Stress-test a larger model and inspect energy, power, and numerical checks.</small><span class="mission-cta">RUN EXPERIMENT <b>→</b></span></button>
+      </div>
+      <div class="mission-feedback" id="mission-feedback" role="status" aria-live="polite"><span class="feedback-symbol">✦</span><div><strong>Try a guided mission</strong><p>Results are calculated from the model settings you choose; no pre-filled chart is presented as a measurement.</p></div></div>
+    </section>
+
+    <section id="studio" class="section-block">
+      <div class="section-heading">
+        <div><div class="eyebrow"><span class="eyebrow-line"></span> EXPERIMENT DESIGNER</div><h2>Build your charging protocol</h2><p>Choose a topology and tune the physical parameters; the classical model updates all four architectures on the same time grid.</p></div>
+        <div class="step-chip"><span>STEP 01</span><strong>Configure</strong></div>
+      </div>
+
+      <div class="studio-grid">
+        <aside class="controls-card panel">
+          <div class="panel-heading"><div><span class="panel-index">A</span><h3>Interaction topology</h3></div><span class="tiny-note">SELECT ONE</span></div>
+          <div class="topology-choices" role="group" aria-label="Choose interaction topology">
+            <button class="topology-choice active" data-topology="star" type="button" aria-pressed="true"><span class="choice-icon" data-icon="star"></span><span><strong>Star hub</strong><small>Shared charger</small></span><span class="choice-arrow">↗</span></button>
+            <button class="topology-choice" data-topology="chain" type="button" aria-pressed="false"><span class="choice-icon" data-icon="chain"></span><span><strong>Nearest-neighbour</strong><small>Local chain</small></span><span class="choice-arrow">↗</span></button>
+            <button class="topology-choice" data-topology="all-to-all" type="button" aria-pressed="false"><span class="choice-icon" data-icon="all-to-all"></span><span><strong>All-to-all</strong><small>Dense exchange graph</small></span><span class="choice-arrow">↗</span></button>
+            <button class="topology-choice" data-topology="parallel" type="button" aria-pressed="false"><span class="choice-icon" data-icon="parallel"></span><span><strong>Parallel baseline</strong><small>Independent cells</small></span><span class="choice-arrow">↗</span></button>
+          </div>
+          <div class="control-divider"></div>
+          <div class="panel-heading sliders-heading"><div><span class="panel-index">B</span><h3>Physical parameters</h3></div><span class="tiny-note">DIMENSIONLESS</span></div>
+          <div class="slider-control">
+            <div class="slider-label"><label for="cells">Battery cells</label><output id="cells-value">3</output></div>
+            <input id="cells" data-setting="nCells" type="range" min="2" max="7" step="1" value="3"/>
+            <div class="range-scale"><span>2 cells</span><span>7 cells</span></div>
+          </div>
+          <div class="slider-control">
+            <div class="slider-label"><label for="omega">Cell energy, ω</label><output id="omega-value">1.00</output></div>
+            <input id="omega" data-setting="omega" type="range" min="0.50" max="1.50" step="0.05" value="1.00"/>
+            <div class="range-scale"><span>Low gap</span><span>High gap</span></div>
+          </div>
+          <div class="slider-control">
+            <div class="slider-label"><label for="drive">Local drive, Ω</label><output id="drive-value">0.70</output></div>
+            <input id="drive" data-setting="drive" type="range" min="0.00" max="1.40" step="0.05" value="0.70"/>
+            <div class="range-scale"><span>Off</span><span>Strong</span></div>
+          </div>
+          <div class="slider-control">
+            <div class="slider-label"><label for="coupling">Edge coupling, g</label><output id="coupling-value">0.80</output></div>
+            <input id="coupling" data-setting="coupling" type="range" min="0.00" max="1.50" step="0.05" value="0.80"/>
+            <div class="range-scale"><span>Decoupled</span><span>Strong</span></div>
+          </div>
+          <div class="slider-control">
+            <div class="slider-label"><label for="horizon">Time horizon, T</label><output id="horizon-value">3.0</output></div>
+            <input id="horizon" data-setting="tMax" type="range" min="1.0" max="4.0" step="0.25" value="3.0"/>
+            <div class="range-scale"><span>Short</span><span>Long</span></div>
+          </div>
+          <div class="slider-control">
+            <div class="slider-label"><label for="resolution">Time samples</label><output id="resolution-value">24</output></div>
+            <input id="resolution" data-setting="steps" type="range" min="12" max="24" step="4" value="24"/>
+            <div class="range-scale"><span>13 points</span><span>25 points</span></div>
+          </div>
+          <div class="control-footer"><div class="parameter-readout"><span class="readout-label">DRIVE BUDGET</span><strong>‖Ω<sub>i</sub>‖₂ = Ω</strong><small>Shared norm across cell count</small></div><div class="parameter-readout"><span class="readout-label">EDGE BUDGET</span><strong>‖g<sub>ij</sub>‖₂ = g</strong><small>Normalized across graph edges</small></div></div>
+          <button id="run-classical" class="run-button" type="button"><span class="run-icon">▶</span> Run classical comparison <span class="button-tail">↗</span></button>
+        </aside>
+
+        <div class="workspace-column">
+          <section class="topology-panel panel">
+            <div class="panel-heading"><div><span class="panel-index">C</span><h3>Live interaction map</h3></div><span class="live-chip"><span></span> MODEL VIEW</span></div>
+            <div class="topology-stage"><svg id="main-topology" class="topology-svg main-topology-svg" viewBox="0 0 760 300" role="img" aria-label="Current battery topology visualization"></svg></div>
+            <div class="topology-legend"><span><i class="legend-dot battery-dot"></i> Battery cell</span><span><i class="legend-dot charger-dot"></i> Charger / hub</span><span><i class="legend-line"></i> Coupling edge</span></div>
+            <div class="topology-description" id="topology-description"><strong>Star hub topology</strong><span>An initially excited auxiliary hub couples to each battery cell; its initial energy is an extra resource and is reported separately.</span></div>
+          </section>
+
+          <section class="metric-grid" aria-label="Current selected topology metrics">
+            <article class="metric-card metric-energy"><div class="metric-top"><span>STORED ENERGY</span><span class="metric-glyph">↗</span></div><div class="metric-value" id="metric-energy">—<small> units</small></div><div class="metric-foot" id="metric-energy-foot">At selected time</div><div class="metric-spark spark-energy"></div></article>
+            <article class="metric-card metric-power"><div class="metric-top"><span>AVG. POWER</span><span class="metric-glyph">ϟ</span></div><div class="metric-value" id="metric-power">—<small> units</small></div><div class="metric-foot" id="metric-power-foot">Eᵦ(t) / t</div><div class="metric-spark spark-power"></div></article>
+            <article class="metric-card metric-ergo"><div class="metric-top"><span>ERGOTROPY</span><span class="metric-glyph">◈</span></div><div class="metric-value" id="metric-ergo">—<small> units</small></div><div class="metric-foot">Extractable work estimate</div><div class="metric-spark spark-ergo"></div></article>
+            <article class="metric-card metric-time"><div class="metric-top"><span>SIM TIME</span><span class="metric-glyph">◷</span></div><div class="metric-value" id="metric-time">0.00<small> model units</small></div><div class="metric-foot">Use the scrubber below</div><div class="metric-spark spark-time"></div></article>
+          </section>
+
+          <section class="results-panel panel" id="results">
+            <div class="panel-heading results-heading"><div><span class="panel-index">D</span><h3>Dynamics explorer</h3></div><div class="chart-legend" id="chart-legend"></div></div>
+            <div class="time-scrubber"><div class="scrub-heading"><div class="scrub-title-group"><label for="time-scrub">Explore a point in time</label><output id="scrub-time-label">t = 0.00</output></div><button id="play-timeline" class="scrub-play" type="button" aria-pressed="false"><span class="play-glyph">▶</span> Play trajectory</button></div><input id="time-scrub" type="range" min="0" max="24" step="1" value="12"/><div class="range-scale"><span>t = 0</span><span id="scrub-end-label">t = 3.00</span></div></div>
+            <div class="charts-grid">
+              <article class="chart-card"><div class="chart-title"><div><span class="chart-kicker">01 / STORED ENERGY</span><h4>How much energy is inside?</h4></div><span class="chart-unit">Eᵦ(t)</span></div><div class="chart-holder" id="chart-energy"></div><p class="chart-note">Expectation of Hᵦ = ω Σ |1⟩⟨1|; the star hub's energy is excluded.</p></article>
+              <article class="chart-card"><div class="chart-title"><div><span class="chart-kicker">02 / AVERAGE POWER</span><h4>How quickly does it charge?</h4></div><span class="chart-unit">Eᵦ(t)/t</span></div><div class="chart-holder" id="chart-power"></div><p class="chart-note">Average power from t = 0 to t; it is defined as zero at t = 0.</p></article>
+              <article class="chart-card chart-wide"><div class="chart-title"><div><span class="chart-kicker">03 / ERGOTROPY</span><h4>How much work can be extracted?</h4></div><span class="chart-unit">𝒲(t)</span></div><div class="chart-holder" id="chart-ergotropy"></div><p class="chart-note">Computed from the simulated reduced state; estimating this on hardware requires more than energy-basis counts.</p></article>
+            </div>
+            <div class="selected-time-strip"><div><span class="strip-icon">◎</span><span><strong id="selected-time-title">At t = 1.50</strong><small id="selected-time-copy">Selected time point across every topology</small></span></div><div class="time-values" id="time-values"></div></div>
+          </section>
+
+          <section id="ranking-panel" class="ranking-panel panel">
+            <div class="panel-heading"><div><span class="panel-index">E</span><h3>Topology showdown</h3></div><span class="tiny-note">CURRENT PARAMETER SET</span></div>
+            <div class="table-wrap"><table class="ranking-table"><thead><tr><th>Topology</th><th>Peak avg. power</th><th>Peak time</th><th>Final energy</th><th>Final ergotropy</th></tr></thead><tbody id="ranking-body"></tbody></table></div>
+            <p class="fairness-note"><span>ⓘ</span> The ranking describes this Hamiltonian, time horizon and normalization only. The star has an initially excited auxiliary hub, an extra resource; do not interpret its result as a universal advantage.</p>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="quantum-section panel" id="quantum-check">
+      <div class="quantum-copy"><div class="eyebrow"><span class="eyebrow-line"></span> OPTIONAL QISKIT EXPERIMENT</div><h2>Take one topology<br/><em>to the quantum circuit.</em></h2><p>The high-resolution classical curves above update locally in the browser. This optional action builds a second-order Trotter circuit for the selected topology at every time point and submits all circuits as one batched Qollab backend job.</p><div class="quantum-flags"><span>QISKIT</span><span>ONE BATCHED JOB</span><span>FINITE SHOTS</span></div><div class="shots-control"><div class="slider-label"><label for="shots">Measurement shots per time point</label><output id="shots-value">1000</output></div><input id="shots" data-setting="shots" type="range" min="200" max="2500" step="100" value="1000"/><div class="range-scale"><span>200 shots</span><span>2500 shots</span></div></div><button id="run-quantum" class="quantum-button" type="button"><span aria-hidden="true">ϟ</span> Validate selected topology on Qollab <span class="button-tail">↗</span></button><p class="quantum-status" id="quantum-status" role="status">Ready when you are. Circuit execution is optional; the interactive classical model works independently.</p></div>
+      <div class="quantum-visual"><div class="circuit-window"><div class="window-dots"><i></i><i></i><i></i><span>trotter_evolution.qc</span></div><svg viewBox="0 0 460 240" role="img" aria-label="Illustration of the Trotter quantum circuit"><g class="wire"><path d="M32 54H430M32 92H430M32 130H430M32 168H430M32 206H430"/></g><g class="gate-groups"><rect x="52" y="38" width="36" height="32" rx="7"/><rect x="52" y="76" width="36" height="32" rx="7"/><rect x="52" y="114" width="36" height="32" rx="7"/><rect x="52" y="152" width="36" height="32" rx="7"/><rect x="110" y="38" width="50" height="70" rx="7"/><rect x="176" y="114" width="50" height="70" rx="7"/><rect x="242" y="76" width="50" height="108" rx="7"/><rect x="310" y="38" width="50" height="146" rx="7"/><rect x="378" y="38" width="32" height="184" rx="7"/></g><g class="gate-text"><text x="70" y="58">H</text><text x="70" y="96">H</text><text x="70" y="134">H</text><text x="70" y="172">X</text><text x="135" y="76">RZ</text><text x="135" y="92">·</text><text x="201" y="146">RX</text><text x="267" y="112">RXX</text><text x="335" y="91">RYY</text><text x="394" y="132">M</text></g><g class="measure-lines"><path d="M394 167v16m-7 0h14m-14 6h14"/></g></svg><div class="circuit-caption"><span class="circuit-pulse"></span> Second-order product formula <span>·</span> illustrative gate layout</div></div><div id="quantum-result" class="quantum-result hidden"></div></div>
+    </section>
+
+    <section class="learning-grid" id="physics">
+      <article class="learning-card panel"><div class="learn-number">01</div><div class="eyebrow">THE PHYSICS</div><h3>A battery is a quantum state</h3><p>Each cell has ground state |0⟩ and excited state |1⟩, with energy gap ω. The stored energy is the expectation of Hᵦ; the dynamics depend on the drive and interactions.</p><details><summary>Read the model</summary><p>Hᵦ = ω Σᵢ |1⟩ᵢ⟨1|. The total model adds (Ω/√N) Σᵢ Xᵢ and (g/√M) Σ over edges of (σ⁺ᵢσ⁻ⱼ + σ⁻ᵢσ⁺ⱼ). A star also has a hub energy ω and starts that hub in |1⟩; local drive and edge coefficients are normalized by their L2 budgets.</p></details></article>
+      <article class="learning-card panel"><div class="learn-number">02</div><div class="eyebrow">USEFUL ENERGY</div><h3>Stored energy isn't the whole story</h3><p>Ergotropy measures the maximum work extractable by a unitary transformation from the current battery state. A mixed state can hold energy that is not fully extractable as work.</p><details><summary>How we estimate it</summary><p>For the star model, the battery is reduced from the battery-plus-hub pure state and its eigenvalues are rearranged into a passive state. For the other topologies, the battery stays pure in this model, so its ergotropy equals stored energy. This is computed from the simulated state, not inferred from measurement counts alone.</p></details></article>
+      <article class="learning-card panel"><div class="learn-number">03</div><div class="eyebrow">FAIR COMPARISON</div><h3>Define the resource before claiming advantage</h3><p>Different graph structures can change the charging curve, but comparing them fairly requires careful accounting of drive strength, coupling weights, charger resources and the time window.</p><details><summary>What this demo does not claim</summary><p>The star starts with an excited auxiliary hub, so it begins with extra energy. The plots report outcomes of the stated toy model, not a resource-independent quantum advantage, a calibrated device prediction, or a practical battery design.</p></details></article>
+    </section>
+
+    <section class="method-strip"><div class="method-icon">∑</div><div><span class="eyebrow">HOW TO EXPLORE</span><h2>Change one thing. Watch the physics change.</h2><p>Start with the parallel baseline, switch to a chain, then try star and all-to-all; next set coupling to zero, change the cell count, and scrub to early versus late time.</p></div><a href="#studio" class="outline-button">Back to controls ↑</a></section>
+
+    <footer class="footer"><div class="footer-brand"><span class="brand-mark small-mark"><svg viewBox="0 0 40 40"><rect x="5" y="9" width="27" height="23" rx="6"/><path d="M32 16h4v9h-4"/><path d="M19 12l-6 10h6l-2 7 10-13h-7l2-4"/></svg></span><span><strong>QUANTUM BATTERY LAB</strong><small>A reproducible quantum-physics explainer</small></span></div><div class="footer-disclaimer">Toy parameters · classical reference · quantum validation optional<br/>AI assistance and prior prototype reuse disclosed in README.</div><div class="footer-links"><a href="#physics">Physics</a><a href="#quantum-check">Qiskit check</a><a href="#top">Top ↑</a></div></footer>
+  </main>
+</div>
